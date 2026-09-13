@@ -1,0 +1,31 @@
+/**app.wxss**/
+/* WeUI 暂时未装（需要 npm i weui-wxss + 工具构建），先用内置样式 */
+page {
+  background: #F7F7F7;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  padding: 32rpx;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.subtitle {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.divider {
+  height: 1rpx;
+  background: #EEE;
+  margin: 24rpx 0;
+}

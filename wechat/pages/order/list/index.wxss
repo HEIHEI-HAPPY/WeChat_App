@@ -1,0 +1,54 @@
+/* pages/order/list/index.wxss */
+.loading, .empty {
+  text-align: center;
+  color: #999;
+  padding: 120rpx 0;
+}
+.empty-emoji { font-size: 120rpx; }
+.empty-text { margin-top: 24rpx; font-size: 28rpx; }
+
+.list { padding: 20rpx 24rpx; }
+.order-item {
+  background: #FFF;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+}
+.row-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16rpx;
+  border-bottom: 1rpx solid #F0F0F0;
+}
+.order-no { color: #666; font-size: 24rpx; }
+.status { font-size: 26rpx; font-weight: 600; }
+.status-0 { color: #FF8800; }   /* 待支付 */
+.status-1 { color: #2EA44F; }   /* 已支付 */
+.status-2 { color: #2EA44F; }
+.status-3 { color: #2EA44F; }
+.status-4 { color: #999; }
+.status-5 { color: #C00; }      /* 已取消 */
+.status-6 { color: #C00; }
+
+.goods-line {
+  display: flex;
+  align-items: center;
+  padding: 12rpx 0;
+  font-size: 26rpx;
+  color: #333;
+}
+.line-name { flex: 1; }
+.line-qty { color: #999; margin-right: 24rpx; }
+.line-price { color: #6F4E37; }
+
+.row-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16rpx;
+  border-top: 1rpx solid #F0F0F0;
+}
+.time { color: #999; font-size: 22rpx; }
+.total { font-size: 26rpx; }
+.total-num { color: #6F4E37; font-weight: 700; font-size: 30rpx; }

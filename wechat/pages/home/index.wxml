@@ -1,0 +1,26 @@
+<!--pages/home/index.wxml-->
+<view class="container">
+  <!-- 顶部 banner + 一键登录 -->
+  <view class="hero">
+    <view class="hero-title">Coffee·咖点</view>
+    <view class="hero-sub">每一杯，都是小确幸</view>
+    <button class="btn-login" bindtap="onTapLogin" size="mini">
+      {{ isLoginText }}
+    </button>
+  </view>
+
+  <!-- 商品列表 -->
+  <view class="section-title">为你推荐</view>
+
+  <view wx:if="{{loading}}" class="loading">加载中...</view>
+  <view wx:elif="{{goods.length === 0}}" class="empty">暂无商品</view>
+
+  <block wx:else>
+    <goods-card
+      wx:for="{{goods}}"
+      wx:key="id"
+      goods="{{item}}"
+      bind:select="onSelectGoods"
+    />
+  </block>
+</view>

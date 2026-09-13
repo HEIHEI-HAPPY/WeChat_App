@@ -1,0 +1,53 @@
+<!--pages/me/index.wxml-->
+<view class="container">
+  <!-- 顶部个人卡片 -->
+  <view class="profile-header">
+    <block wx:if="{{user}}">
+      <image class="avatar" src="{{user.avatarUrl || '/images/avatar-default.png'}}"></image>
+      <view class="profile-info">
+        <view class="nickname">{{user.nickname || '咖啡用户'}}</view>
+        <view class="uid">UID: {{user.id}}</view>
+      </view>
+    </block>
+    <block wx:else>
+      <image class="avatar" src="/images/avatar-default.png"></image>
+      <view class="profile-info">
+        <view class="nickname">未登录</view>
+        <button class="btn-login-mini" bindtap="onTapLogin">微信登录</button>
+      </view>
+    </block>
+  </view>
+
+  <!-- 我的订单 -->
+  <view wx:if="{{user}}" class="menu-card">
+    <view class="menu-row" data-type="orders" bindtap="onTapRow">
+      <text class="row-icon">📋</text>
+      <text class="row-label">我的订单</text>
+      <text class="row-arrow">›</text>
+    </view>
+    <view class="menu-row" data-type="addresses" bindtap="onTapRow">
+      <text class="row-icon">📍</text>
+      <text class="row-label">收货地址</text>
+      <text class="row-arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 信息卡（已登录时显示） -->
+  <view wx:if="{{user}}" class="info-card">
+    <view class="info-row">
+      <text class="info-label">会员等级</text>
+      <text class="info-value">Lv.{{user.level || 1}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">积分</text>
+      <text class="info-value">{{user.points || 0}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">openid</text>
+      <text class="info-value mono">{{user.openid}}</text>
+    </view>
+  </view>
+
+  <!-- 退出登录按钮 -->
+  <button wx:if="{{user}}" class="btn-logout" bindtap="onTapLogout">退出登录</button>
+</view>

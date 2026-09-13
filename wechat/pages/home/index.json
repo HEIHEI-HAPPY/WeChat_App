@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "咖啡·咖点",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "goods-card": "/components/goods-card/goods-card"
+  }
+}

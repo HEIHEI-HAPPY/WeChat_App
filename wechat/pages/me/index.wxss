@@ -1,0 +1,90 @@
+/* pages/me/index.wxss */
+.container { padding: 0; }
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  padding: 60rpx 32rpx 40rpx;
+  background: linear-gradient(135deg, #6F4E37, #8B6F4E);
+  color: #FFF;
+}
+.avatar {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  border: 4rpx solid rgba(255,255,255,0.3);
+}
+.profile-info {
+  margin-left: 32rpx;
+  flex: 1;
+}
+.nickname {
+  font-size: 36rpx;
+  font-weight: 700;
+}
+.uid {
+  font-size: 24rpx;
+  opacity: 0.85;
+  margin-top: 8rpx;
+}
+.btn-login-mini {
+  background: rgba(255,255,255,0.95) !important;
+  color: #6F4E37 !important;
+  font-size: 24rpx !important;
+  padding: 8rpx 24rpx !important;
+  border-radius: 32rpx !important;
+  margin-top: 12rpx !important;
+}
+
+.menu-card {
+  background: #FFF;
+  margin: -20rpx 24rpx 20rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.06);
+}
+.menu-row {
+  display: flex;
+  align-items: center;
+  padding: 28rpx 32rpx;
+  border-bottom: 1rpx solid #F5F5F5;
+}
+.menu-row:last-child { border-bottom: none; }
+.row-icon { font-size: 36rpx; margin-right: 16rpx; }
+.row-label { flex: 1; font-size: 30rpx; }
+.row-arrow { color: #CCC; font-size: 36rpx; }
+
+.info-card {
+  background: #FFF;
+  margin: 0 24rpx 32rpx;
+  border-radius: 16rpx;
+  padding: 0 32rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.06);
+}
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28rpx 0;
+  border-bottom: 1rpx solid #F5F5F5;
+}
+.info-row:last-child { border-bottom: none; }
+.info-label { color: #666; font-size: 28rpx; }
+.info-value { color: #333; font-size: 28rpx; }
+.info-value.mono {
+  font-family: 'Courier New', monospace;
+  font-size: 24rpx;
+  max-width: 360rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn-logout {
+  background: #FFF !important;
+  color: #C00 !important;
+  border-radius: 48rpx !important;
+  font-size: 28rpx !important;
+  margin: 32rpx 60rpx !important;
+  border: 2rpx solid #F5F5F5 !important;
+}

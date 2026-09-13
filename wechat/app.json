@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/goods/detail/index",
+    "pages/cart/index",
+    "pages/order/confirm/index",
+    "pages/order/list/index",
+    "pages/order/detail/index",
+    "pages/address/list/index",
+    "pages/address/edit/index",
+    "pages/me/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#6F4E37",
+    "navigationBarTitleText": "Coffee·咖点",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F7F7F7"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#6F4E37",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/me/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

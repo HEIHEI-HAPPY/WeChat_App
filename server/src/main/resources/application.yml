@@ -1,0 +1,42 @@
+# 公共配置（所有 profile 共享）
+spring:
+  application:
+    name: mall-server
+  profiles:
+    active: dev   # 默认走 dev（H2 + 本地 MinIO），生产改 prod
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      timeout: 3s
+
+server:
+  port: 3000   # PROJECT_MAP 默认端口
+  servlet:
+    context-path: /
+
+# 应用配置
+app:
+  jwt:
+    secret: ${JWT_SECRET:please-change-me-to-a-long-random-string-min-32-chars}
+    expire-hours: 168   # 7 天
+  wechat:
+    appid: ${WX_APPID:PLACEHOLDER_APPID}
+    secret: ${WX_SECRET:PLACEHOLDER_SECRET}
+  minio:
+    endpoint: ${MINIO_ENDPOINT:http://localhost:9000}
+    access-key: ${MINIO_ACCESS_KEY:minioadmin}
+    secret-key: ${MINIO_SECRET_KEY:minioadmin}
+    bucket: ${MINIO_BUCKET:mall}
+    public-url: ${MINIO_PUBLIC_URL:http://localhost:9000/mall}
+
+logging:
+  level:
+    com.mall: DEBUG

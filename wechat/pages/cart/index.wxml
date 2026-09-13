@@ -1,0 +1,41 @@
+<!--pages/cart/index.wxml-->
+<view wx:if="{{loading}}" class="loading">加载中...</view>
+
+<view wx:elif="{{!isLogin}}" class="empty">
+  <view class="empty-emoji">🔐</view>
+  <view class="empty-text">登录后查看购物车</view>
+  <button class="btn-go" bindtap="onTapLogin">微信登录</button>
+</view>
+
+<view wx:elif="{{items.length === 0}}" class="empty">
+  <view class="empty-emoji">🛒</view>
+  <view class="empty-text">购物车空空如也</view>
+  <button class="btn-go" bindtap="goHome">去首页逛逛</button>
+</view>
+
+<block wx:else>
+  <view class="list">
+    <view wx:for="{{items}}" wx:key="itemId" class="cart-item">
+      <image class="cover" src="{{item.imageUrl || '/images/placeholder.png'}}" mode="aspectFill"></image>
+      <view class="body">
+        <view class="name">{{item.goodsName}}</view>
+        <view class="sku">{{item.sku}}</view>
+        <view class="price">{{ itemYuan[item.itemId] }}</view>
+        <view class="qty-row">
+          <view class="qty-btn" data-item-id="{{item.itemId}}" data-qty="{{item.quantity}}" bindtap="onMinus">−</view>
+          <text class="qty-num">{{item.quantity}}</text>
+          <view class="qty-btn" data-item-id="{{item.itemId}}" data-qty="{{item.quantity}}" bindtap="onPlus">+</view>
+          <view class="del" data-item-id="{{item.itemId}}" bindtap="onDelete">删除</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer">
+    <view class="total">合计 <text class="total-num">{{totalYuan}}</text></view>
+    <view class="btn-row">
+      <view class="btn-clear" bindtap="onClear">清空</view>
+      <view class="btn-checkout" bindtap="onCheckout">去结算 ({{items.length}})</view>
+    </view>
+  </view>
+</block>

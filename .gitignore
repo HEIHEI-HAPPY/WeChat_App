@@ -1,0 +1,40 @@
+# Maven build output
+target/
+*.jar
+*.war
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.project
+.classpath
+.settings/
+
+# Spring Boot
+HELP.md
+application-local.yml
+
+# Database files
+*.db
+*.mv.db
+*.trace.db
+
+# Logs
+logs/
+*.log
+
+# Environment variables (sensitive)
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node modules (if any)
+node_modules/
+
+# WeChat developer tools local config
+project.private.config.json

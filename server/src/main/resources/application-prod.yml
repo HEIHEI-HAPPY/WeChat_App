@@ -1,0 +1,16 @@
+# 生产环境模板（参考用，不要直接用）
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mall?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: validate   # 生产绝不 update，交由 Flyway 管理
+    show-sql: false
+
+logging:
+  level:
+    com.mall: INFO
+    org.hibernate: WARN

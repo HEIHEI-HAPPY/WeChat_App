@@ -1,0 +1,94 @@
+/* pages/order/confirm/index.wxss */
+.loading, .empty {
+  text-align: center;
+  color: #999;
+  padding: 120rpx 0;
+}
+.empty-emoji { font-size: 120rpx; }
+.empty-text { margin: 24rpx 0 40rpx; font-size: 28rpx; }
+.btn-go {
+  background: #6F4E37 !important;
+  color: #FFF !important;
+  border-radius: 48rpx !important;
+  width: 320rpx;
+}
+
+.addr-block {
+  background: #FFF;
+  margin: 20rpx 24rpx;
+  padding: 28rpx;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+}
+.addr-row1 { display: flex; align-items: center; gap: 16rpx; }
+.name { font-size: 32rpx; font-weight: 600; }
+.phone { color: #666; font-size: 26rpx; }
+.default-tag {
+  background: #6F4E37; color: #FFF;
+  font-size: 20rpx; padding: 4rpx 12rpx; border-radius: 4rpx;
+}
+.addr-row2 {
+  margin-top: 12rpx;
+  color: #666; font-size: 26rpx; line-height: 1.5;
+}
+.addr-empty { color: #C00; font-size: 28rpx; }
+.arrow { margin-left: auto; color: #CCC; font-size: 36rpx; }
+
+.section {
+  background: #FFF;
+  margin: 20rpx 24rpx;
+  padding: 24rpx;
+  border-radius: 16rpx;
+}
+.section-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  margin-bottom: 20rpx;
+}
+.goods-row {
+  display: flex;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #F5F5F5;
+}
+.goods-row:last-child { border-bottom: none; }
+.cover {
+  width: 140rpx; height: 140rpx;
+  border-radius: 12rpx; background: #F0F0F0;
+  flex-shrink: 0;
+}
+.body { flex: 1; margin-left: 16rpx; display: flex; flex-direction: column; justify-content: space-between; }
+.name { font-size: 28rpx; }
+.sku { font-size: 22rpx; color: #999; margin-top: 4rpx; }
+.row-bottom { display: flex; justify-content: space-between; align-items: center; }
+.price { color: #6F4E37; font-weight: 600; }
+.qty { color: #999; font-size: 26rpx; }
+
+.radio-group { display: flex; gap: 40rpx; }
+.radio { font-size: 28rpx; color: #333; }
+
+.remark {
+  width: 100%;
+  font-size: 26rpx;
+  min-height: 100rpx;
+  padding: 12rpx 0;
+}
+
+.footer {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: #FFF;
+  border-top: 1rpx solid #EEE;
+  padding: 16rpx 24rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.total { font-size: 28rpx; color: #333; }
+.total-num { color: #6F4E37; font-weight: 700; font-size: 36rpx; }
+.btn-submit {
+  background: linear-gradient(135deg, #6F4E37, #8B6F4E) !important;
+  color: #FFF !important;
+  border-radius: 48rpx !important;
+  font-size: 30rpx !important;
+  padding: 16rpx 48rpx !important;
+}

@@ -1,0 +1,30 @@
+<!--pages/order/list/index.wxml-->
+<view wx:if="{{loading}}" class="loading">加载中...</view>
+
+<view wx:elif="{{!isLogin}}" class="empty">
+  <view class="empty-emoji">🔐</view>
+  <view class="empty-text">登录后查看订单</view>
+</view>
+
+<view wx:elif="{{orders.length === 0}}" class="empty">
+  <view class="empty-emoji">📋</view>
+  <view class="empty-text">还没有订单</view>
+</view>
+
+<view wx:else class="list">
+  <view wx:for="{{orders}}" wx:key="id" class="order-item" data-id="{{item.id}}" bindtap="onTapOrder">
+    <view class="row-top">
+      <text class="order-no">订单号：{{item.orderNo}}</text>
+      <text class="status status-{{item.status}}">{{item.statusText}}</text>
+    </view>
+    <view wx:for="{{item.items}}" wx:for-item="it" wx:key="id" class="goods-line">
+      <text class="line-name">{{it.goodsName || '商品 #' + it.goodsId}}</text>
+      <text class="line-qty">×{{it.quantity}}</text>
+      <text class="line-price">￥{{it.priceSnapshot / 100}}</text>
+    </view>
+    <view class="row-bottom">
+      <text class="time">{{item.createdAt}}</text>
+      <text class="total">合计 <text class="total-num">{{item.totalYuan}}</text></text>
+    </view>
+  </view>
+</view>

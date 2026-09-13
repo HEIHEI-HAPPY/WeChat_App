@@ -1,0 +1,9 @@
+<!--components/goods-card/goods-card.wxml-->
+<view class="card" bindtap="onTap">
+  <image class="cover" src="{{goods.imageUrl || '/images/placeholder.png'}}" mode="aspectFill"></image>
+  <view class="body">
+    <view class="name">{{goods.name}}</view>
+    <view class="desc">{{goods.description || '香浓咖啡，欢迎品尝'}}</view>
+    <view class="price">{{priceText}}</view>
+  </view>
+</view>

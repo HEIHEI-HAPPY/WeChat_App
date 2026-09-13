@@ -1,0 +1,79 @@
+/* pages/order/detail/index.wxss */
+.loading {
+  text-align: center;
+  color: #999;
+  padding: 120rpx 0;
+}
+
+.status-bar {
+  padding: 60rpx 40rpx;
+  color: #FFF;
+  text-align: center;
+}
+.status-0 { background: linear-gradient(135deg, #FF8800, #FFA040); }
+.status-1, .status-2, .status-3, .status-4 { background: linear-gradient(135deg, #2EA44F, #4FCB6F); }
+.status-5, .status-6 { background: #999; }
+.status-title { font-size: 44rpx; font-weight: 700; }
+.status-hint { font-size: 26rpx; opacity: 0.85; margin-top: 12rpx; }
+
+.addr-block {
+  background: #FFF;
+  margin: 20rpx 24rpx;
+  padding: 28rpx;
+  border-radius: 16rpx;
+  position: relative;
+}
+.row1 { display: flex; gap: 24rpx; align-items: center; }
+.name { font-size: 32rpx; font-weight: 600; }
+.phone { color: #666; font-size: 26rpx; }
+.row2 { margin-top: 12rpx; color: #666; font-size: 26rpx; line-height: 1.5; }
+.pickup-tag {
+  position: absolute;
+  top: 28rpx; right: 28rpx;
+  background: #F5F0E8; color: #6F4E37;
+  font-size: 22rpx; padding: 6rpx 16rpx; border-radius: 4rpx;
+}
+
+.section {
+  background: #FFF;
+  margin: 20rpx 24rpx;
+  padding: 24rpx;
+  border-radius: 16rpx;
+}
+.section-title { font-size: 28rpx; font-weight: 600; margin-bottom: 16rpx; }
+.goods-line {
+  display: flex; align-items: center;
+  padding: 12rpx 0; font-size: 26rpx; color: #333;
+}
+.line-name { flex: 1; }
+.line-qty { color: #999; margin-right: 24rpx; }
+.line-price { color: #6F4E37; }
+
+.remark-text { color: #666; font-size: 28rpx; line-height: 1.6; }
+
+.info-row {
+  display: flex; justify-content: space-between;
+  padding: 12rpx 0;
+  font-size: 26rpx;
+}
+.info-label { color: #999; }
+.info-value { color: #333; }
+.info-value.mono { font-family: 'Courier New', monospace; font-size: 22rpx; }
+.info-value.total { color: #6F4E37; font-weight: 700; font-size: 32rpx; }
+.total-row { padding-top: 16rpx; margin-top: 12rpx; border-top: 1rpx solid #F0F0F0; }
+
+.footer {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  display: flex; gap: 24rpx;
+  padding: 16rpx 24rpx;
+  background: #FFF;
+  border-top: 1rpx solid #EEE;
+}
+.btn-cancel, .btn-pay {
+  flex: 1; text-align: center;
+  padding: 24rpx 0;
+  border-radius: 48rpx;
+  font-size: 30rpx;
+}
+.btn-cancel { background: #F5F5F5; color: #666; }
+.btn-pay { background: linear-gradient(135deg, #6F4E37, #8B6F4E); color: #FFF; }

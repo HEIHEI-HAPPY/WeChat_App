@@ -1,0 +1,43 @@
+/* pages/home/index.wxss */
+.hero {
+  background: linear-gradient(135deg, #6F4E37 0%, #8B6F4E 100%);
+  padding: 60rpx 40rpx;
+  border-radius: 24rpx;
+  color: #FFF;
+  margin-bottom: 32rpx;
+  position: relative;
+}
+.hero-title {
+  font-size: 48rpx;
+  font-weight: 700;
+}
+.hero-sub {
+  font-size: 26rpx;
+  opacity: 0.9;
+  margin-top: 12rpx;
+}
+.btn-login {
+  position: absolute;
+  top: 40rpx;
+  right: 32rpx;
+  background: rgba(255,255,255,0.95) !important;
+  color: #6F4E37 !important;
+  font-size: 24rpx !important;
+  border-radius: 32rpx !important;
+  padding: 8rpx 24rpx !important;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+  padding: 16rpx 24rpx;
+  border-left: 8rpx solid #6F4E37;
+  margin-bottom: 8rpx;
+}
+
+.loading, .empty {
+  text-align: center;
+  color: #999;
+  padding: 80rpx 0;
+}

@@ -1,0 +1,52 @@
+/* pages/address/edit/index.wxss */
+.form {
+  padding: 24rpx;
+}
+.form-row {
+  display: flex;
+  align-items: flex-start;
+  padding: 28rpx 0;
+  border-bottom: 1rpx solid #F0F0F0;
+}
+.form-row.switch-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.label {
+  width: 160rpx;
+  font-size: 28rpx;
+  color: #666;
+  flex-shrink: 0;
+}
+.input {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+.region {
+  flex: 1;
+  display: flex;
+  gap: 12rpx;
+}
+.region-input {
+  flex: 1;
+  font-size: 26rpx;
+  background: #F7F7F7;
+  padding: 12rpx 16rpx;
+  border-radius: 8rpx;
+  text-align: center;
+}
+.textarea {
+  flex: 1;
+  font-size: 28rpx;
+  min-height: 120rpx;
+  padding: 12rpx 0;
+}
+.btn-save {
+  margin-top: 60rpx;
+  background: linear-gradient(135deg, #6F4E37, #8B6F4E) !important;
+  color: #FFF !important;
+  border-radius: 48rpx !important;
+  font-size: 32rpx !important;
+}

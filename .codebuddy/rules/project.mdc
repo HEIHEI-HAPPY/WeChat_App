@@ -1,0 +1,59 @@
+---
+description: mall 咖啡点餐小程序 - 项目全局规则
+alwaysApply: true
+enabled: true
+updatedAt: 2026-09-10T16:00:00.000Z
+provider: 
+---
+
+- admin 系统的后台管理系统，架构为 Vue3 + Element Plus + TypeScript + Vite + Pinia
+- wechat 小程序端，使用小程序的原生语言 + WeUI 组件库（npm i weui-wxss）
+
+# 全局规则
+- 后端使用自建 Java 服务（Java 17 + Spring Boot 3.3 + Spring Data JPA），不使用 CloudBase
+- 后端代码放在 server/ 目录，pom.xml 在根，默认端口 3000（可在 application.yml 修改）
+- 开发用 H2 内存库；生产换 MySQL 8 / PostgreSQL 16 只改 application.yml 一个文件
+- 小程序端与 admin 端统一通过 HTTP/JSON 调用后端接口
+- 鉴权用 JWT（jjwt 0.12+），前端带 Authorization: Bearer <token>
+- 后端不做用户密码登录（仅微信登录：wx.login → code → 后端 jscode2session 换 openid）；admin 账号才用密码（bcrypt）
+- 价格统一存「分」（INTEGER），前端展示时 /100
+- 对象存储用 MinIO（Docker 自建，S3 兼容协议）；商品图、头像都走 POST /api/upload → 返 URL
+  - DB 只存 URL 字符串，不存文件二进制
+  - bucket 目录约定：goods/{yyyy}/{mm}/{uuid}.ext，avatar/{openid}/{uuid}.ext
+  - 学习阶段用 minioadmin/minioadmin；生产改密码 + 限制内网 + HTTPS
+- 开发阶段：微信开发者工具 -> 详情 -> 本地设置，勾选「不校验合法域名、TLS 版本以及 HTTPS 证书」，直连 http://localhost:3000；真机调试用局域网 IP
+
+# 接口规范
+- 统一返回 { code: 0, message: "ok", data: ... }
+- 错误返回 { code: 4xxx, message: "...", data: null }
+- 未授权 401，参数错误 400，未找到 404
+- 路径前缀 /api/...
+- multipart 上传：POST /api/upload，字段名 file，最大 5MB，仅允许 image/png|jpeg|gif|webp
+
+# 数据库命名（参考 PROJECT_MAP 第五章 10 张表）
+- 表名：snake_case 复数（wx_users, goods, orders, order_items, cart_items, coupons, addresses, stores, admin_users）
+- 字段名：snake_case（avatar_url, created_at）
+- 主键统一 id BIGINT AUTO_INCREMENT
+- 时间字段：created_at, updated_at, paid_at, deleted_at
+- 软删：deleted_at IS NULL 表示有效记录
+
+# Java 命名（参考 PROJECT_MAP 第十一章 + 第十二章）
+- 类：PascalCase（WxLoginController, GoodsService）
+- 包名：com.mall.controller / service / repository / entity / dto / filter / exception / config
+- 常量：UPPER_SNAKE
+- 不引 Lombok（Java 17/25 兼容 + 手写更扎实），手写 getter/setter/构造器
+
+# 前端目录
+- 小程序：pages/（21 个页面）、components/（goods-card/empty/loading/status-bar）、utils/（request, auth, format, api）、images/
+- admin：src/views/、src/api/、src/stores/（Pinia）、src/router/、src/layouts/、src/styles/
+
+# 关键决策（与 PROJECT_MAP 第六章保持一致）
+- 小程序框架：原生（不引 Taro/uni-app）
+- 小程序 UI：WeUI
+- 后端语言：Java 17（LTS，compile target 17，可跑在 17-25 任意版本）
+- 后端框架：Spring Boot 3.3 + Spring Data JPA
+- 数据库：H2 内存（dev）/ MySQL 8 或 PostgreSQL 16（prod）
+- 鉴权：JWT（jjwt 0.12）
+- 对象存储：MinIO（S3 兼容）
+- 后台：Vue3 + Element Plus + TS + Vite + Pinia
+- 部署：阿里云轻量 + Nginx + systemd

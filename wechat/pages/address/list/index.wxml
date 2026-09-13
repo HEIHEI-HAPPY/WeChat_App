@@ -1,0 +1,31 @@
+<!--pages/address/list/index.wxml-->
+<view wx:if="{{loading}}" class="loading">加载中...</view>
+
+<view wx:elif="{{addresses.length === 0}}" class="empty">
+  <view class="empty-emoji">📍</view>
+  <view class="empty-text">还没有收货地址</view>
+</view>
+
+<view wx:else class="list">
+  <view wx:for="{{addresses}}" wx:key="id" class="addr-item {{item.isDefault ? 'is-default' : ''}}"
+        bindtap="{{selectMode ? 'onSelect' : ''}}" data-id="{{item.id}}">
+    <view class="row1">
+      <text class="name">{{item.name}}</text>
+      <text class="phone">{{item.phone}}</text>
+      <text wx:if="{{item.isDefault}}" class="default-tag">默认</text>
+    </view>
+    <view class="row2">
+      {{item.province || ''}}{{item.city || ''}}{{item.district || ''}} {{item.detail}}
+    </view>
+    <view wx:if="{{!selectMode}}" class="row3">
+      <view wx:if="{{!item.isDefault}}" class="op" data-id="{{item.id}}" bindtap="onSetDefault">设为默认</view>
+      <view class="op" data-id="{{item.id}}" bindtap="onEdit">编辑</view>
+      <view class="op del" data-id="{{item.id}}" bindtap="onDelete">删除</view>
+    </view>
+  </view>
+</view>
+
+<!-- 底部新增按钮（非选择模式时显示） -->
+<view wx:if="{{!selectMode}}" class="footer">
+  <view class="btn-add" bindtap="onAdd">+ 新增收货地址</view>
+</view>
